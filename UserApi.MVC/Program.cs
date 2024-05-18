@@ -1,25 +1,46 @@
+using UserManagment.UserApi.Services.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+//Register Contoso App Services
+AddApplicationServices(builder);
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//Register MVC Services
+AddMvcServices(builder);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+ConfigureMvcServices(app);
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
+app.CreateDbIfNotExists();
 
 app.Run();
+
+
+static void ConfigureMvcServices(WebApplication app)
+{
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
+    app.UseHttpsRedirection();
+
+    app.UseAuthorization();
+
+    app.MapControllers();
+}
+
+static void AddMvcServices(WebApplicationBuilder builder)
+{
+    builder.Services.AddControllers();
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+}
+
+static void AddApplicationServices(WebApplicationBuilder builder)
+{
+    builder.Services.AddUserServices(builder.Configuration, builder.Environment.IsProduction());
+}
