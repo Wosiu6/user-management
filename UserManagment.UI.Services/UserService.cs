@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using Microsoft.Extensions.Options;
+using System.Net.Http.Json;
 using UserManagment.UI.Services.Contracts;
 using UserManagment.UserApi.Models;
 
@@ -11,7 +12,7 @@ public class UserService : IUserService
 
     public UserService(IHttpClientFactory httpClientFactory)
     {
-        _httpClient = httpClientFactory.CreateClient("AdminApi");
+        _httpClient = httpClientFactory.CreateClient("UserApi");
     }
 
     public async Task<UserEntity> AddUserAsync(UserEntity entity)

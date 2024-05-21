@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using UserManagment.UserApi.Models;
 using UserManagment.UserApi.Services.Contracts;
 
-namespace Contoso.Pizza.AdminApi.MVC.Controllers;
+namespace UserManagment.UserApi.MVC.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -39,10 +39,10 @@ public class UsersController : ControllerBase
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Post([FromBody] UserEntity newPizza)
+    public async Task<IActionResult> Post([FromBody] UserEntity newUser)
     {
-        var createdPizza = await _service.AddAsync(newPizza);
-        return CreatedAtAction(nameof(GetUserById), new { id = createdPizza.Id }, createdPizza);
+        var createdUser = await _service.AddAsync(newUser);
+        return CreatedAtAction(nameof(GetUserById), new { id = createdUser.Id }, createdUser);
     }
 
 

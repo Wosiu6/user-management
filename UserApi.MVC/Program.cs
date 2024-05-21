@@ -2,7 +2,7 @@ using UserManagment.UserApi.Services.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//Register Contoso App Services
+//Register App Services
 AddApplicationServices(builder);
 
 //Register MVC Services

@@ -1,21 +1,31 @@
 ﻿@inherits LayoutComponentBase
-
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+<FluentLayout>
+    <FluentHeader Style="">
+        Pat's User Management
+        <div style="margin-left: auto; order: 2; display: inline-flex; gap: 10px;">
+            <FluentButton IconStart="@(new Icons.Regular.Size20.ArrowEnter())"
+                          Title="@($"Sign In")">
+                Sign In
+            </FluentButton>
+            <FluentButton IconStart="@(new Icons.Regular.Size20.Add())"
+                          Title="@($"Sign In")">
+                Sign Up
+            </FluentButton>
         </div>
+    </FluentHeader>
+    <FluentStack Class="main" Orientation="Orientation.Horizontal" Width="100%">
+        <NavMenu />
+        <FluentBodyContent>
+            <div class="content">
+                @Body
+            </div>
+        </FluentBodyContent>
+    </FluentStack>
+</FluentLayout>
+<FluentDialogProvider />
+<FluentToastProvider MaxToastCount="10" />
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
-
+<FluentDesignTheme StorageName="theme" />
 <div id="blazor-error-ui">
     An unhandled error has occurred.
     <a href="" class="reload">Reload</a>
