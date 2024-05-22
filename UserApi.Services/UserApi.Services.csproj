@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UserApi.Models\UserApi.Models.csproj" />
-    <ProjectReference Include="..\UserManagment.Data\UserManagment.Data.csproj" />
+    <ProjectReference Include="..\UserManagement.Data\UserManagement.Data.csproj" />
   </ItemGroup>
 
 </Project>

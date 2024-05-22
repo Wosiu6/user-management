@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using UserManagment.Data.Initializers;
+using UserManagement.Data.Initializers;
 
-namespace UserManagment.UserApi.Services.Extensions;
+namespace UserManagement.UserApi.Services.Extensions;
 
 public static class HostExtensions
 {

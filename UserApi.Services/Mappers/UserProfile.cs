@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using UserManagment.Data.Models;
-using UserManagment.UserApi.Models;
+using UserManagement.Data.Models;
+using UserManagement.UserApi.Models;
 
-namespace UserManagment.UserApi.Services.Mappers;
+namespace UserManagement.UserApi.Services.Mappers;
 
 public class UserProfile : Profile
 {

@@ -1,0 +1,67 @@
+﻿@page "/users"
+@using Microsoft.FluentUI.AspNetCore.Components
+@using UserManagement.Data.Models
+@using UserManagement.UI.Components.Shared
+@using UserManagement.UserApi.Models
+@inherits BasePage
+@rendermode InteractiveServer
+
+<PageTitle>Users</PageTitle>
+
+<div style="margin-top:1em">
+    <FluentBreadcrumb>
+        <FluentBreadcrumbItem Href="/">
+            Home
+            <FluentIcon Value="@(new Icons.Regular.Size20.Home())" Color="@Color.Neutral" Slot="start" />
+        </FluentBreadcrumbItem>
+        <FluentBreadcrumbItem>
+            Users
+            <FluentIcon Value="@(new Icons.Regular.Size20.Person())" Color="@Color.Neutral" Slot="start" />
+        </FluentBreadcrumbItem>
+    </FluentBreadcrumb>
+</div>
+<div style="margin-top:1.5em">
+    <h1>Users</h1>
+</div>
+<div style="margin-bottom:3em">
+    <p>Who are they?</p>
+</div>
+@if (_users == null)
+{
+    <ProgressLoader ProgressText="Loading users..." Columns="4"></ProgressLoader>
+}
+else
+{
+    <FluentDataGrid Id="usersGrid" Items=@_users TGridItem=UserEntity>
+        <TemplateColumn Title="Name" Sortable="true">
+            <span @onclick=@(() => OnEditUserClick(context)) style="font-weight:bold;text-decoration:underline;cursor:pointer">@context.Name</span>
+        </TemplateColumn>
+        <PropertyColumn Title="Surname" Property="@(c => c!.Surname)" Sortable="true" Align=Align.Start />
+        <PropertyColumn Title="Surname" Property="@(c => c!.Email)" Sortable="true" Align=Align.Start />
+        <PropertyColumn Title="Surname" Property="@(c => c!.Surname)" Sortable="true" Align=Align.Start />
+        <PropertyColumn Title="Surname" Property="@(c => c!.IsActive)" Sortable="true" Align=Align.Start />
+
+        <PropertyColumn Title="Created" Property="@(c => c!.DateOfBirth)" Format="MMM dd, yyyy" Sortable="true" Align=Align.Start />
+
+        <PropertyColumn Title="Created" Property="@(c => c!.Created)" Format="MMM dd, yyyy" Sortable="true" Align=Align.Start />
+        <PropertyColumn Title="Modified" Property="@(c => c!.Modified)" Format="MMM dd, yyyy" Sortable="true" Align=Align.Start />
+        <TemplateColumn Title="Actions">
+            <FluentIcon Value="@(new Icons.Regular.Size20.Eye())" Title="View user"
+                        Color="Color.Accent" Style="cursor:pointer"
+                        @onclick="@(() => OnViewUserClick(context))" />
+                        <FluentIcon Value="@(new Icons.Regular.Size20.Pen())" Title="Edit user"
+                        Color="Color.Accent" Style="cursor:pointer"
+                        @onclick="@(() => OnEditUserClick(context))" />
+            <FluentIcon Value="@(new Icons.Regular.Size20.Delete())" Title="Delete user"
+                        Color="Color.Error" Style="cursor:pointer"
+                        @onclick="@(() => OnDeleteUserClick(context))" />
+        </TemplateColumn>
+    </FluentDataGrid>
+
+    <div style="border-top:1px solid lightgrey;">
+        <FluentToolbar Style="margin-top:3em;padding-top:0">
+            <FluentButton Appearance="Appearance.Stealth" IconStart="@(new Icons.Regular.Size12.Add())"
+                          @onclick="OnAddNewUserClick" Title="Add a user">Add a user</FluentButton>
+        </FluentToolbar>
+    </div>
+}

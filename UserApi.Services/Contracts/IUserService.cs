@@ -1,6 +1,6 @@
-﻿using UserManagment.UserApi.Models;
+﻿using UserManagement.UserApi.Models;
 
-namespace UserManagment.UserApi.Services.Contracts;
+namespace UserManagement.UserApi.Services.Contracts;
 public interface IUserService : IService<UserEntity>
 {
 }

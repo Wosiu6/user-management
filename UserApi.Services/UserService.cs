@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using UserManagment.Data.Contracts;
-using UserManagment.Data.Models;
-using UserManagment.UserApi.Models;
-using UserManagment.UserApi.Services.Contracts;
+using UserManagement.Data.Contracts;
+using UserManagement.Data.Models;
+using UserManagement.UserApi.Models;
+using UserManagement.UserApi.Services.Contracts;
 
-namespace UserManagment.UserApi.Services;
+namespace UserManagement.UserApi.Services;
 
 public class UserService : IUserService
 {

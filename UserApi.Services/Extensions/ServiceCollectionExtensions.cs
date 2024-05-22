@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using UserManagment.UserApi.Services.Contracts;
-using UserManagment.Data.Extensions;
+using UserManagement.UserApi.Services.Contracts;
+using UserManagement.Data.Extensions;
 
-namespace UserManagment.UserApi.Services.Extensions
+namespace UserManagement.UserApi.Services.Extensions
 {
     public static class ServiceCollectionExtensions
     {

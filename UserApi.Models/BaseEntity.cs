@@ -1,4 +1,4 @@
-﻿namespace UserManagment.UserApi.Models;
+﻿namespace UserManagement.UserApi.Models;
 
 public abstract class BaseEntity
 {

@@ -1,4 +1,4 @@
-﻿namespace UserManagment.UserApi.Services.Contracts
+﻿namespace UserManagement.UserApi.Services.Contracts
 {
     public interface IService<T>
         where T : class

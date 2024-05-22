@@ -1,0 +1,58 @@
+﻿@using Microsoft.FluentUI.AspNetCore.Components
+@using UserManagement.UserApi.Models
+@implements IDialogContentComponent<UserEntity>
+
+@rendermode InteractiveServer
+
+<FluentDialogBody>
+    @if (isBusy)
+    {
+        <FluentProgressRing></FluentProgressRing>
+    }
+    else
+    {
+        <FluentStack Orientation="Orientation.Vertical">
+            <FluentLabel Weight="FontWeight.Bold">
+                <FluentStack Orientation="Orientation.Vertical">
+                    <h2>Name</h2>
+                    @Content.Name
+                </FluentStack>
+            </FluentLabel>
+
+            <FluentSpacer Width="10" />
+
+            <FluentLabel Weight="FontWeight.Bold">
+                <FluentStack Orientation="Orientation.Vertical">
+                    <h2>Surname</h2>
+                    @Content.Surname
+                </FluentStack>
+            </FluentLabel>
+
+            <FluentSpacer Width="10" />
+            <FluentLabel Weight="FontWeight.Bold">
+                <FluentStack Orientation="Orientation.Vertical">
+                    <h2>Email</h2>
+                    @Content.Email
+                </FluentStack>
+            </FluentLabel>
+
+            <FluentSpacer Width="10" />
+
+            <FluentLabel Weight="FontWeight.Bold">
+                <FluentStack Orientation="Orientation.Vertical">
+                    <h2>Date Of Birth</h2>
+                    @Content.DateOfBirth?.ToString("yyyy-MM-dd") ?? "";
+                </FluentStack>
+            </FluentLabel>
+
+            <FluentSpacer Width="10" />
+
+            <FluentLabel Weight="FontWeight.Bold">
+                <FluentStack Orientation="Orientation.Vertical">
+                    <h2>Active</h2>
+                    @Content.IsActive
+                </FluentStack>
+            </FluentLabel>
+        </FluentStack>
+    }
+</FluentDialogBody>

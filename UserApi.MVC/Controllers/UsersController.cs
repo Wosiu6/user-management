@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using UserManagment.UserApi.Models;
-using UserManagment.UserApi.Services.Contracts;
+using UserManagement.UserApi.Models;
+using UserManagement.UserApi.Services.Contracts;
 
-namespace UserManagment.UserApi.MVC.Controllers;
+namespace UserManagement.UserApi.MVC.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]

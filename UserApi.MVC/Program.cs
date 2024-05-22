@@ -1,4 +1,4 @@
-using UserManagment.UserApi.Services.Extensions;
+using UserManagement.UserApi.Services.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

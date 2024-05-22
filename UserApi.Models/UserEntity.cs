@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UserManagment.UserApi.Models;
+namespace UserManagement.UserApi.Models;
 
 public class UserEntity : BaseEntity
 {
