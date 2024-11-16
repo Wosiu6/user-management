@@ -1,4 +1,6 @@
-# User Management
+# API for managing Users
+
+This is a sample app that utilises the basic concept of API and how it's utilised in .NET
 
 This has been as much of an assessment as a learning exercise for me. I tried to focus on the backend more than the front end. This lacks validation on the front end, but I do not think I want to put any more time into Fluent UI or rewriting the UI.
 
